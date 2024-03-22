@@ -12,6 +12,9 @@ public class BaseBallApplication {
 		BaseBallController baseBallController =
 			new BaseBallController(inputReceiver, scoreCalculator, answerGenerator);
 
-		baseBallController.start();
+		do {
+			baseBallController.start();
+
+		} while (baseBallController.isRestart());
 	}
 }

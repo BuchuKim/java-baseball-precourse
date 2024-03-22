@@ -37,4 +37,12 @@ public class BaseBallController {
 		}
 		System.out.println("3개의 숫자를 모두 맞히셨습니다! 게임 끝");
 	}
+
+	/**
+	 * 게임을 재시작할 것인지 여부를 반환합니다.
+	 * @return
+	 */
+	public boolean isRestart() {
+		return inputReceiver.getRestartInput();
+	}
 }
