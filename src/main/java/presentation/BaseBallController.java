@@ -24,16 +24,12 @@ public class BaseBallController {
 		String answer = answerGenerator.generateAnswer();
 
 		while (true) {
-			try {
-				String input = inputReceiver.getPlayerInput();
-				Score score = scoreCalculator.calculate(answer, input);
-				if (score.isFinished()) {
-					break;
-				}
-				System.out.println(score.generateScoreMessage());
-			} catch (IllegalArgumentException e) {
-				System.out.println("[ERROR] 숫자로 구성된 3자리 숫자를 입력해주세요!!");
+			String input = inputReceiver.getPlayerInput();
+			Score score = scoreCalculator.calculate(answer, input);
+			if (score.isFinished()) {
+				break;
 			}
+			System.out.println(score.generateScoreMessage());
 		}
 		System.out.println("3개의 숫자를 모두 맞히셨습니다! 게임 끝");
 	}

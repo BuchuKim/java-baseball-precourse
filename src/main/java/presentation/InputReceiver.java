@@ -11,11 +11,17 @@ public class InputReceiver {
 	 * 플레이어가 문제를 맞히기 위해 입력하는 입력값을 받습니다.
 	 * @return
 	 */
-	public String getPlayerInput() throws IllegalArgumentException {
-		System.out.print("숫자를 입력해주세요 : ");
-		String input = scanner.nextLine();
-		validateInput(input);
-		return input;
+	public String getPlayerInput() {
+		while (true) {
+			try {
+				System.out.print("숫자를 입력해주세요 : ");
+				String input = scanner.nextLine();
+				validateInput(input);
+				return input;
+			} catch (IllegalArgumentException e) {
+				System.out.println("[ERROR] 숫자로 구성된 3자리 숫자를 입력해주세요!!");
+			}
+		}
 	}
 
 	/**
@@ -23,10 +29,16 @@ public class InputReceiver {
 	 * @return
 	 */
 	public boolean getRestartInput() {
-		System.out.println("게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요.");
-		String input = scanner.nextLine();
-		validateRestartInput(input);
-		return input.equals("1");
+		while (true) {
+			try {
+				System.out.println("게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요.");
+				String input = scanner.nextLine();
+				validateRestartInput(input);
+				return input.equals("1");
+			} catch (IllegalArgumentException e) {
+				System.out.println("[ERROR] 게임 재시작 여부에 따라 1 혹은 2를 입력해주세요!");
+			}
+		}
 	}
 
 	/**
